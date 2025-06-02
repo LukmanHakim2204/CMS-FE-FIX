@@ -9,6 +9,7 @@ import Milestone from "../component/Landing/Milestone";
 import Portfolio from "../component/Landing/Portfolio";
 import Footer from "../component/Footer";
 import PostingIG from "../component/Landing/PostingIG";
+import Contact from "../component/Landing/Contact";
 
 // import InstagramPOST from "../component/Landing/PostinganIG";
 
@@ -37,6 +38,7 @@ const Landing = () => {
       <Milestone />
       <Portfolio />
       <PostingIG />
+      <Contact />
       <Footer />
     </>
   );
