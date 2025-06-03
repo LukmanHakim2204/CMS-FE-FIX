@@ -261,7 +261,7 @@ function PostingIG() {
       {/* Feed Header */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent mb-3 flex items-center justify-center gap-4">
-          <FontAwesomeIcon icon={faCamera} />
+          <FontAwesomeIcon icon={faCamera} className="text-orange-500" />
           Our Instagram Posts
         </h1>
         <p className="text-gray-500 text-lg mb-8">

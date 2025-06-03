@@ -73,8 +73,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact</h2>
         <p className="text-gray-600">
-          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-          consectetur velit
+          Kami terbuka untuk kerja sama, pertanyaan, atau sekadar menyapa.
         </p>
       </div>
 
@@ -156,7 +155,7 @@ const Contact = () => {
                   <input
                     type="text"
                     name="name"
-                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
@@ -168,7 +167,7 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
@@ -181,7 +180,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="subject"
-                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
@@ -193,7 +192,7 @@ const Contact = () => {
                 <textarea
                   name="message"
                   rows={6}
-                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-xl border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500 resize-none"
                   placeholder="Message"
                   value={formData.message}
                   onChange={handleChange}
