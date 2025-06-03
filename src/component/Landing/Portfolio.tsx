@@ -1,16 +1,5 @@
 import { useState } from "react";
-
-interface PortfolioItem {
-  image: string;
-  category: string;
-  title: string;
-  description: string;
-  gallery: string;
-  details: string;
-  technologies: string[];
-  client: string;
-  duration: string;
-}
+import type { PortfolioItem } from "../../types/type";
 
 const Portfolio = () => {
   const portfolioItems: PortfolioItem[] = [
@@ -136,19 +125,29 @@ const Portfolio = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
   const itemsPerPage = 3;
   const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
 
   const goToPrevious = (): void => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : totalPages - 1));
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const goToNext = (): void => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prev) => (prev < totalPages - 1 ? prev + 1 : 0));
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const goToSlide = (index: number): void => {
+    if (isTransitioning || index === currentIndex) return;
+    setIsTransitioning(true);
     setCurrentIndex(index);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   const openModal = (item: PortfolioItem): void => {
@@ -176,12 +175,6 @@ const Portfolio = () => {
     e.currentTarget.parentElement?.classList.add("loading");
   };
 
-  const getCurrentPageItemsCount = (): number => {
-    const startIndex = currentIndex * itemsPerPage;
-    const endIndex = Math.min(startIndex + itemsPerPage, portfolioItems.length);
-    return endIndex - startIndex;
-  };
-
   return (
     <div className="bg-gradient-to-br from-orange-400 via-orange-600 to-red-600 min-h-screen">
       <section
@@ -189,23 +182,43 @@ const Portfolio = () => {
         className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
       >
         {/* Background Overlay */}
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div
+          className="absolute inset-0 bg-black/10"
+          data-aos="fade-in"
+          data-aos-duration="1500"
+        ></div>
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Section Header */}
-          <div className="text-center mb-16 relative">
-            <div className="absolute inset-0 flex items-center justify-center opacity-10">
-              <span className="text-9xl font-black text-white select-none">
-                Galeri
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10 drop-shadow-lg">
+          <div
+            className="text-center mb-16 relative"
+            data-aos="fade-up"
+            data-aos-delay="100"
+            data-aos-duration="1000"
+          >
+            <h2
+              className="text-4xl md:text-5xl font-bold text-white mb-6 relative z-10 drop-shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="1000"
+            >
               Galeri Kami
             </h2>
-            <p className="text-lg text-white/90 max-w-3xl mx-auto mb-8 relative z-10 drop-shadow-md">
+            <p
+              className="text-lg text-white/90 max-w-3xl mx-auto mb-8 relative z-10 drop-shadow-md"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-duration="1000"
+            >
               Koleksi karya terbaik yang mencerminkan dedikasi dan inovasi dalam
               setiap project yang kami kerjakan
             </p>
-            <div className="flex items-center justify-center gap-4 relative z-10">
+            <div
+              className="flex items-center justify-center gap-4 relative z-10"
+              data-aos="fade-up"
+              data-aos-delay="500"
+              data-aos-duration="1000"
+            >
               <div className="w-16 h-0.5 bg-white/80"></div>
               <div className="w-3 h-3 bg-white/80 rounded-full animate-pulse"></div>
               <div className="w-16 h-0.5 bg-white/80"></div>
@@ -213,7 +226,12 @@ const Portfolio = () => {
           </div>
 
           {/* Portfolio Carousel */}
-          <div className="relative">
+          <div
+            className="relative"
+            data-aos="fade-up"
+            data-aos-delay="600"
+            data-aos-duration="1200"
+          >
             <div className="overflow-hidden rounded-lg">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
@@ -243,6 +261,10 @@ const Portfolio = () => {
                           <div
                             key={`${pageIndex}-${itemIndex}`}
                             className="group relative bg-white/70 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 overflow-hidden hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 transform hover:-translate-y-3 hover:scale-105"
+                            data-aos="fade-up"
+                            data-aos-delay={700 + itemIndex * 100}
+                            data-aos-duration="800"
+                            data-aos-anchor-placement="top-bottom"
                           >
                             <div className="relative overflow-hidden aspect-square">
                               <img
@@ -302,11 +324,16 @@ const Portfolio = () => {
               </div>
             </div>
 
-            {/* Navigation */}
+            {/* Navigation - FIXED VERSION WITHOUT CONFLICTING AOS */}
             <div className="flex items-center justify-between mt-12">
               <button
-                className="flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-md text-white rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 group border border-white/30"
+                className={`flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-md text-white rounded-xl border border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 group ${
+                  isTransitioning
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-white/30"
+                }`}
                 onClick={goToPrevious}
+                disabled={isTransitioning}
                 title="Previous"
                 type="button"
               >
@@ -323,24 +350,31 @@ const Portfolio = () => {
                 </svg>
               </button>
 
+              {/* Fixed Dots Container */}
               <div className="flex items-center gap-4 bg-white/20 backdrop-blur-md rounded-full px-6 py-3 border border-white/30">
                 {Array.from({ length: totalPages }).map((_, index) => (
                   <button
                     key={index}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 transform hover:scale-125 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-300 transform ${
                       index === currentIndex
                         ? "bg-white scale-150 shadow-lg"
-                        : "bg-white/60 hover:bg-white/80 shadow-sm"
-                    }`}
+                        : "bg-white/60 hover:bg-white/80 shadow-sm hover:scale-125"
+                    } ${isTransitioning ? "pointer-events-none" : ""}`}
                     onClick={() => goToSlide(index)}
+                    disabled={isTransitioning}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
 
               <button
-                className="flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-md text-white rounded-xl hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 group border border-white/30"
+                className={`flex items-center justify-center w-14 h-14 bg-white/20 backdrop-blur-md text-white rounded-xl border border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 group ${
+                  isTransitioning
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-white/30"
+                }`}
                 onClick={goToNext}
+                disabled={isTransitioning}
                 title="Next"
                 type="button"
               >
@@ -366,10 +400,6 @@ const Portfolio = () => {
                 <span className="mx-2 text-white/60">•</span>
                 <span className="text-white/90">
                   {portfolioItems.length} Total Projects
-                </span>
-                <span className="mx-2 text-white/60">•</span>
-                <span className="text-white/90">
-                  {getCurrentPageItemsCount()} Items pada halaman ini
                 </span>
               </div>
             </div>

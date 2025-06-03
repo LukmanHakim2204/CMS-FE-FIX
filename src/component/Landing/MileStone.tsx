@@ -132,7 +132,11 @@ const MileStone = () => {
             {/* Main Content Container */}
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-12">
               {/* Slider Section - Always First on Mobile */}
-              <div className="w-full lg:w-7/12 order-1">
+              <div
+                className="w-full lg:w-7/12 order-1"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
                 <div
                   className="bg-white/90 backdrop-blur-md rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 shadow-2xl border-2 border-white/20"
                   style={{
@@ -321,7 +325,11 @@ const MileStone = () => {
               </div>
 
               {/* Image & Stats Section - Second on Mobile */}
-              <div className="w-full lg:w-5/12 order-2">
+              <div
+                className="w-full lg:w-5/12 order-2"
+                data-aos="fade-left"
+                data-aos-delay="300"
+              >
                 <div
                   className="bg-white/90 backdrop-blur-md rounded-2xl lg:rounded-3xl p-4 md:p-6 shadow-2xl border-2 border-white/20"
                   style={{

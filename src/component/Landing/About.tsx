@@ -4,10 +4,11 @@ const About = () => {
   return (
     <section id="about" className="py-16 bg-white -mt-1">
       <div
-        className="container mx-auto px-4 text-center mb-10"
+        className="container mx-auto px-4 text-center "
         data-aos="fade-up"
+        data-aos-delay="100"
       >
-        <h2 className="text-3xl font-bold text-gray-800">About</h2>
+        <h2 className="text-4xl font-bold text-gray-800">About</h2>
       </div>
 
       <div className="container mx-auto px-4">
@@ -16,7 +17,7 @@ const About = () => {
           <div
             className="w-full lg:w-1/2"
             data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos-delay="200"
           >
             <p className="mb-4 text-gray-700">
               Bara Reca Niroga merupakan perusahaan FMCG (Fast Moving Consumer
@@ -54,7 +55,7 @@ const About = () => {
           {/* Image */}
           <div
             className="w-full lg:w-1/2"
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-delay="200"
           >
             <img
