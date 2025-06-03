@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -30,7 +31,13 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-white">Brand</h1>
+            <Link to="/">
+              <img
+                className="h-10 w-auto"
+                src="/assets/images/logoputih.png"
+                alt="Workflow"
+              />
+            </Link>
           </div>
 
           {/* Desktop Menu */}
