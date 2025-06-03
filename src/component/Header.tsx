@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -30,40 +32,67 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-white">Brand</h1>
+            <Link to="/">
+              <img
+                className="h-10 w-auto"
+                src="/assets/images/logoputih.png"
+                alt="Workflow"
+              />
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <a
-                href="#home"
+              <HashLink
+                to="/#hero"
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
                 style={{ color: "white" }}
               >
                 Home
-              </a>
-              <a
-                href="#about"
+              </HashLink>
+              <HashLink
+                to="/#about"
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
                 style={{ color: "white" }}
               >
                 About
-              </a>
-              <a
-                href="#services"
+              </HashLink>
+              <HashLink
+                to="/#visimisi"
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
                 style={{ color: "white" }}
               >
-                Services
-              </a>
-              <a
-                href="#contact"
+                Visi & Misi
+              </HashLink>
+              <HashLink
+                to="/#portfolio"
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
+                style={{ color: "white" }}
+              >
+                Portfolio
+              </HashLink>
+              <Link
+                to="/blog"
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
+                style={{ color: "white" }}
+              >
+                Blog
+              </Link>
+              <HashLink
+                to="/#contact"
                 className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
                 style={{ color: "white" }}
               >
                 Contact
-              </a>
+              </HashLink>
+              <HashLink
+                to="#/contact"
+                className="px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-600 transition-colors duration-200"
+                style={{ color: "white" }}
+              >
+                Karir
+              </HashLink>
             </div>
           </div>
 

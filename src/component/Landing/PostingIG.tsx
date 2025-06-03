@@ -1,6 +1,7 @@
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState, useCallback } from "react";
+import type { ApiResponseIG, InstagramPost } from "../../types/type";
 
 // Simple axios implementation for the artifact environment
 const axios = {
@@ -23,20 +24,6 @@ const axios = {
 };
 
 // Type untuk response API yang mungkin berbeda format
-interface ApiResponse {
-  data?: InstagramPost[];
-  posts?: InstagramPost[];
-  items?: InstagramPost[];
-}
-
-interface InstagramPost {
-  id: string;
-  media_type: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
-  media_url: string;
-  thumbnail_url?: string;
-  caption?: string;
-  permalink: string;
-}
 
 function PostingIG() {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
@@ -74,20 +61,20 @@ function PostingIG() {
           postsData = response.data as InstagramPost[];
         } else if (
           response.data &&
-          Array.isArray((response.data as ApiResponse).data)
+          Array.isArray((response.data as ApiResponseIG).data)
         ) {
-          postsData = (response.data as ApiResponse).data as InstagramPost[];
+          postsData = (response.data as ApiResponseIG).data as InstagramPost[];
         } else if (
           response.data &&
-          Array.isArray((response.data as ApiResponse).posts)
+          Array.isArray((response.data as ApiResponseIG).posts)
         ) {
-          postsData = (response.data as ApiResponse).posts as InstagramPost[];
+          postsData = (response.data as ApiResponseIG).posts as InstagramPost[];
         } else if (
           response.data &&
-          (response.data as ApiResponse).items &&
-          Array.isArray((response.data as ApiResponse).items)
+          (response.data as ApiResponseIG).items &&
+          Array.isArray((response.data as ApiResponseIG).items)
         ) {
-          postsData = (response.data as ApiResponse).items as InstagramPost[];
+          postsData = (response.data as ApiResponseIG).items as InstagramPost[];
         } else {
           throw new Error(
             `Invalid response format. Received: ${JSON.stringify(
@@ -182,20 +169,20 @@ function PostingIG() {
         postsData = response.data as InstagramPost[];
       } else if (
         response.data &&
-        Array.isArray((response.data as ApiResponse).data)
+        Array.isArray((response.data as ApiResponseIG).data)
       ) {
-        postsData = (response.data as ApiResponse).data as InstagramPost[];
+        postsData = (response.data as ApiResponseIG).data as InstagramPost[];
       } else if (
         response.data &&
-        Array.isArray((response.data as ApiResponse).posts)
+        Array.isArray((response.data as ApiResponseIG).posts)
       ) {
-        postsData = (response.data as ApiResponse).posts as InstagramPost[];
+        postsData = (response.data as ApiResponseIG).posts as InstagramPost[];
       } else if (
         response.data &&
-        (response.data as ApiResponse).items &&
-        Array.isArray((response.data as ApiResponse).items)
+        (response.data as ApiResponseIG).items &&
+        Array.isArray((response.data as ApiResponseIG).items)
       ) {
-        postsData = (response.data as ApiResponse).items as InstagramPost[];
+        postsData = (response.data as ApiResponseIG).items as InstagramPost[];
       } else {
         throw new Error(
           `Invalid response format. Received: ${JSON.stringify(
@@ -250,7 +237,11 @@ function PostingIG() {
 
   if (posts.length === 0) {
     return (
-      <div className="flex flex-col justify-center items-center h-80 gap-5">
+      <div
+        className="flex flex-col justify-center items-center h-80 gap-5"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <p className="text-gray-500 text-center">📭 No Instagram posts found</p>
       </div>
     );
@@ -259,9 +250,13 @@ function PostingIG() {
   return (
     <div className="max-w-6xl mx-auto px-5 py-10 bg-gray-50 min-h-screen">
       {/* Feed Header */}
-      <div className="text-center mb-12">
+      <div
+        className="text-center mb-12"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <h1 className="text-4xl font-extrabold bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent mb-3 flex items-center justify-center gap-4">
-          <FontAwesomeIcon icon={faCamera} />
+          <FontAwesomeIcon icon={faCamera} className="text-orange-500" />
           Our Instagram Posts
         </h1>
         <p className="text-gray-500 text-lg mb-8">
@@ -274,7 +269,11 @@ function PostingIG() {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative mt-10 bg-white rounded-2xl p-8 shadow-xl overflow-hidden">
+      <div
+        className="relative mt-10 bg-white rounded-2xl p-8 shadow-xl overflow-hidden"
+        data-aos="fade-left"
+        data-aos-delay="200"
+      >
         {/* Posts Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 min-h-[400px]">
           {getCurrentSlideItems().map((post, index) => (

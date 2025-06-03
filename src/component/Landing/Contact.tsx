@@ -70,18 +70,25 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4 text-center mb-12">
+      <div
+        className="container mx-auto px-4 text-center mb-12"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Contact</h2>
         <p className="text-gray-600">
-          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-          consectetur velit
+          Kami terbuka untuk kerja sama, pertanyaan, atau sekadar menyapa.
         </p>
       </div>
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Contact Info */}
-          <div className="lg:col-span-4 space-y-10">
+          <div
+            className="lg:col-span-4 space-y-10"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
             {/* Address */}
             <div className="flex items-start group">
               <div className="w-11 h-11 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mr-4 transition-all duration-300 group-hover:bg-orange-600 group-hover:text-white flex-shrink-0">
@@ -149,14 +156,18 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-8">
+          <div
+            className="lg:col-span-8"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <div className="h-full" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                   <input
                     type="text"
                     name="name"
-                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleChange}
@@ -168,7 +179,7 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                    className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleChange}
@@ -181,7 +192,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="subject"
-                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
+                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-full border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500"
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
@@ -193,7 +204,7 @@ const Contact = () => {
                 <textarea
                   name="message"
                   rows={6}
-                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500 resize-none"
+                  className="w-full px-4 py-3 text-sm text-gray-700 bg-white border rounded-xl border-gray-300 focus:border-orange-600 focus:outline-none placeholder-gray-500 resize-none"
                   placeholder="Message"
                   value={formData.message}
                   onChange={handleChange}
@@ -226,7 +237,7 @@ const Contact = () => {
         </div>
 
         {/* Map */}
-        <div className="mt-12">
+        <div className="mt-12" data-aos="fade-left" data-aos-delay="300">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.3768290363487!2d108.54420837573714!3d-6.723790265742511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ee3f332fdb533%3A0xc2132a45dba95904!2sBara%20Reca%20Niroga!5e0!3m2!1sid!2sid!4v1748052871399!5m2!1sid!2sid"
             width="600"
