@@ -102,6 +102,14 @@ export interface PaginationInfo {
     hasPrev: boolean;
   }
   
+  export interface RecentPost  {
+    id: number;
+    title: string;
+    slug: string;
+    thumbnail: string;
+    published_at: string;
+  }
+  
 export interface BlogPostsListProps {
     posts: Post[];
     loading: boolean;
