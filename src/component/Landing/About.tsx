@@ -1,4 +1,5 @@
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -43,13 +44,15 @@ const About = () => {
                 </li>
               ))}
             </ul>
-            <a
-              href="#"
-              className="mt-6 inline-flex items-center text-primary-600 hover:underline font-medium"
-            >
-              <span>Read More</span>
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+            <div className="mt-4 flex justify-end">
+              <Link
+                to="/about"
+                className="mt-6 inline-flex items-center px-4 py-2 border border-orange-600 rounded-full text-orange-600 hover:bg-orange-600 hover:text-white font-medium transition-colors duration-200"
+              >
+                <span>Read More</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </div>
           </div>
 
           {/* Image */}
