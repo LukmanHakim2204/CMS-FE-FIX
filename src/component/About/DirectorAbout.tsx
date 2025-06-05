@@ -1,3 +1,4 @@
+import Director from "/assets/images/Director.jpg";
 const DirectorAbout = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-orange-100 p-4 md:p-8 flex items-center justify-center">
@@ -9,7 +10,7 @@ const DirectorAbout = () => {
           <div className="flex-shrink-0">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-orange-400 overflow-hidden shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src={Director}
                 alt="Muhammad Nasirudin"
                 className="w-full h-full object-cover"
               />
