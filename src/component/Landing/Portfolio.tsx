@@ -277,7 +277,7 @@ const Portfolio = () => {
                               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
 
                               {/* Floating Elements */}
-                              <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
+                              <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
                                 <span className="px-3 py-1 bg-white/90 text-orange-600 text-xs font-medium uppercase tracking-wide rounded-full backdrop-blur-sm shadow-lg">
                                   {item.category.replace("filter-", "")}
                                 </span>
