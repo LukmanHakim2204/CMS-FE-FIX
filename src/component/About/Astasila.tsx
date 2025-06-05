@@ -14,10 +14,10 @@ export default function Astasila() {
           </h1>
           {/* Text Content */}
           <div className="flex-1 text-white order-2 lg:order-1">
-            <div className="text-base md:text-lg leading-relaxed text-white/90 space-y-8">
+            <div className="text-base md:text-lg leading-relaxed text-white/90 space-y-3">
               {/* Point 1: Spiritual Foundation */}
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-white to-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm mt-1">
                   1
                 </div>
                 <div className="flex-1">
@@ -32,7 +32,7 @@ export default function Astasila() {
 
               {/* Point 2: Personal Excellence */}
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-amber-200 to-yellow-400 rounded-full flex items-center justify-center text-orange-800 font-bold text-sm mt-1">
                   2
                 </div>
                 <div className="flex-1">
@@ -47,10 +47,23 @@ export default function Astasila() {
                 </div>
               </div>
 
-              {/* Point 3: Team Collaboration */}
+              {/* Point 3: Personal Excellence */}
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-pink-200 to-pink-400 rounded-full flex items-center justify-center text-pink-900 font-bold text-sm mt-1">
                   3
+                </div>
+                <div className="flex-1">
+                  <p className="text-justify">
+                    Menjadi kebanggaan orangtua dan keluarga adalah cita-cita
+                    kami. Kami berkomitmen untuk membuat mereka bangga dan
+                    menjaga nama baik keluarga.
+                  </p>
+                </div>
+              </div>
+              {/* Point 4: Team Collaboration */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-blue-200 to-blue-400 rounded-full flex items-center justify-center text-blue-900 font-bold text-sm mt-1">
+                  4
                 </div>
                 <div className="flex-1">
                   <p className="text-justify">
@@ -63,10 +76,10 @@ export default function Astasila() {
                 </div>
               </div>
 
-              {/* Point 4: Mutual Respect */}
+              {/* Point 5: Mutual Respect */}
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
-                  4
+                  5
                 </div>
                 <div className="flex-1">
                   <p className="text-justify">
@@ -78,10 +91,10 @@ export default function Astasila() {
                 </div>
               </div>
 
-              {/* Point 5: Customer Focus */}
+              {/* Point 6: Customer Focus */}
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
-                  5
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-lime-200 to-lime-400 rounded-full flex items-center justify-center text-lime-900 font-bold text-sm mt-1">
+                  6
                 </div>
                 <div className="flex-1">
                   <p className="text-justify">
@@ -94,16 +107,30 @@ export default function Astasila() {
                 </div>
               </div>
 
-              {/* Point 6: Continuous Growth */}
+              {/* Point 7: Continuous Growth */}
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
-                  6
+                  7
                 </div>
                 <div className="flex-1">
                   <p className="text-justify">
                     Kemajuan tim adalah prioritas utama kami. Kami berusaha
                     membangun budaya kerja yang baik, patuh pada
                     profesionalitas, bekerja dengan fokus, gigih, dan optimal.
+                    Hidup hanya sekali, maka raihlah ilmu setinggi-tingginya,
+                    tanamkan tauhid yang murni, terapkan strategi dengan
+                    sempurna, dan berusahalah sehebat-hebatnya dalam setiap
+                    pemikiran dan tindakan.
+                  </p>
+                </div>
+              </div>
+              {/* Point 8: Continuous Growth */}
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm mt-1">
+                  8
+                </div>
+                <div className="flex-1">
+                  <p className="text-justify">
                     Hidup hanya sekali, maka raihlah ilmu setinggi-tingginya,
                     tanamkan tauhid yang murni, terapkan strategi dengan
                     sempurna, dan berusahalah sehebat-hebatnya dalam setiap
