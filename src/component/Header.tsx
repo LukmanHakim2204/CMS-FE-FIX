@@ -123,7 +123,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-black bg-opacity-90">
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-orange-400 bg-opacity-90 text-center">
           <a
             href="#home"
             className="text-white hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
