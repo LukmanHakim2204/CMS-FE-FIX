@@ -12,7 +12,7 @@ const blogApi = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  timeout: 30000, // 30 seconds timeout
+  timeout: 30000, 
 });
 
 // Request interceptor for logging or auth tokens
