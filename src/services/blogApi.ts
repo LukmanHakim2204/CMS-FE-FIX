@@ -12,16 +12,12 @@ const blogApi = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  timeout: 30000, // 30 seconds timeout
+  timeout: 30000, 
 });
 
 // Request interceptor for logging or auth tokens
 blogApi.interceptors.request.use(
   (config) => {
-    // Only log in development
-    if (import.meta.env.DEV) {
-      console.log(`Making ${config.method?.toUpperCase()} request to: ${config.url}`);
-    }
     return config;
   },
   (error) => {
@@ -86,23 +82,4 @@ export const blogService = {
       throw new Error('An unexpected error occurred while fetching the post');
     }
   },
-
-  // Search posts
-  async searchPosts(query: string, page = 1): Promise<PaginatedResponse> {
-    try {
-      const response: AxiosResponse<PaginatedResponse> = await blogApi.get('/posts/search', {
-        params: { q: query, page }
-      });
-      
-      return response.data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        throw new Error(
-          error.response?.data?.message || 
-          `Failed to search posts: ${error.message}`
-        );
-      }
-      throw new Error('An unexpected error occurred while searching posts');
-    }
-  }
 };

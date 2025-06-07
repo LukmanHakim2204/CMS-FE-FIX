@@ -300,7 +300,7 @@ export default function BlogDetails() {
                         />
                       </svg>
                       <span className="font-medium">
-                        {post.author_id?.name || "Anonymous"}
+                        {post.author?.name || "Anonymous"}
                       </span>
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
@@ -319,10 +319,10 @@ export default function BlogDetails() {
                         {formatDate(post.published_at)}
                       </time>
                     </div>
-                    {post.category_id?.name && (
+                    {post.category?.name && (
                       <div className="flex items-center">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                          {post.category_id.name}
+                          {post.category.name}
                         </span>
                       </div>
                     )}
@@ -339,7 +339,7 @@ export default function BlogDetails() {
                   </div>
 
                   {/* Tags */}
-                  {post.tags_id && (
+                  {post.tags && (
                     <div className="mt-8 pt-6 border-t border-gray-200">
                       <div className="flex items-center flex-wrap gap-2">
                         <svg
@@ -356,12 +356,15 @@ export default function BlogDetails() {
                         <span className="text-sm text-gray-500 font-medium">
                           Tags:
                         </span>
-                        <Link
-                          to="#"
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200"
-                        >
-                          {post.tags_id.name}
-                        </Link>
+                        {post.tags.map((tag) => (
+                          <Link
+                            to="#"
+                            key={tag.id}
+                            className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200"
+                          >
+                            {tag.name}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -381,12 +384,12 @@ export default function BlogDetails() {
                   <div className="relative w-20 h-20 mx-auto mb-4">
                     <img
                       src="/assets/img/blog/blog-author.jpg"
-                      alt={post.author_id?.name || "Author"}
+                      alt={post.author?.name || "Author"}
                       className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
                     />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {post.author_id?.name || "Jane Smith"}
+                    {post.author?.name || "Jane Smith"}
                   </h3>
                   <div className="flex justify-center space-x-3 mb-4">
                     <a
@@ -551,9 +554,9 @@ export default function BlogDetails() {
                                   <p className="text-xs text-gray-500">
                                     {formatDate(result.published_at)}
                                   </p>
-                                  {result.category_id?.name && (
+                                  {result.category?.name && (
                                     <span className="inline-block px-2 py-0.5 text-xs bg-blue-100 text-blue-800 rounded-full">
-                                      {result.category_id.name}
+                                      {result.category.name}
                                     </span>
                                   )}
                                 </div>
@@ -627,9 +630,9 @@ export default function BlogDetails() {
                                 <p className="text-xs text-gray-500">
                                   {formatDate(recentPost.published_at)}
                                 </p>
-                                {recentPost.category_id?.name && (
+                                {recentPost.category?.name && (
                                   <span className="inline-block px-2 py-0.5 text-xs bg-blue-100 text-blue-800 rounded-full">
-                                    {recentPost.category_id.name}
+                                    {recentPost.category.name}
                                   </span>
                                 )}
                               </div>
@@ -703,13 +706,16 @@ export default function BlogDetails() {
                   <span className="absolute bottom-0 left-0 w-12 h-0.5 bg-blue-600 rounded-full"></span>
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {post.tags_id ? (
-                    <Link
-                      to="#"
-                      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors duration-200"
-                    >
-                      {post.tags_id.name}
-                    </Link>
+                  {post.tags && post.tags.length > 0 ? (
+                    post.tags.map((tag) => (
+                      <Link
+                        key={tag.id}
+                        to="#"
+                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200"
+                      >
+                        {tag.name}
+                      </Link>
+                    ))
                   ) : (
                     <>
                       <Link
