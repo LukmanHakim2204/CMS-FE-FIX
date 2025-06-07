@@ -50,43 +50,48 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   // Safe property access with fallbacks - TYPE SAFE VERSION
   const getCategoryName = (): string => {
     // Check for category_id first (as per your original code)
-    if (post.category_id?.name) {
-      return post.category_id.name;
-    }
-    
-    // Type-safe property checking without 'any'
-    if ('category' in post && 
-        post.category && 
-        typeof post.category === 'object' && 
-        'name' in post.category &&
-        typeof post.category.name === 'string') {
+    if (post.category?.name) {
       return post.category.name;
     }
-    
+
+    // Type-safe property checking without 'any'
+    if (
+      "category" in post &&
+      post.category &&
+      typeof post.category === "object" &&
+      "name" in post.category &&
+      typeof post.category.name === "string"
+    ) {
+      return post.category.name;
+    }
+
     return "Uncategorized";
   };
 
   const getAuthorName = (): string => {
     // Check for author_id first (as per your original code)
-    if (post.author_id?.name) {
-      return post.author_id.name;
-    }
-    
-    // Type-safe property checking without 'any'
-    if ('author' in post && 
-        post.author && 
-        typeof post.author === 'object' && 
-        'name' in post.author &&
-        typeof post.author.name === 'string') {
+    if (post.author?.name) {
       return post.author.name;
     }
-    
+
+    // Type-safe property checking without 'any'
+    if (
+      "author" in post &&
+      post.author &&
+      typeof post.author === "object" &&
+      "name" in post.author &&
+      typeof post.author.name === "string"
+    ) {
+      return post.author.name;
+    }
+
     return "Anonymous";
   };
 
   const categoryName = getCategoryName();
   const authorName = getAuthorName();
-  const publishedDate = post.published_at || post.created_at || new Date().toISOString();
+  const publishedDate =
+    post.published_at || post.created_at || new Date().toISOString();
   const postTitle = post.title || "Untitled Post";
   const postSlug = post.slug || "#";
   const postThumbnail = post.thumbnail;
